@@ -2,22 +2,18 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CriarTabela {
+public class InserirUsuario {
+	
 	public static void main(String[] args) throws SQLException {
 		
 		Connection connection = FabricaConexao.getConnection();
-		
 		Statement stmt = connection.createStatement();
 		
 		stmt.execute("use java_udemy");
-		stmt.execute("create table usuario("
-				+ "codigo int auto_increment not null, "
-				+ "nome varchar(35), "
-				+ "idade int(2),"
-				+ "primary key(codigo) "
-				+ ")");
-		
+		stmt.execute("insert into usuario(nome, idade) values ('Julia', '17')");
 		
 		connection.close();
-	} 
+		
+	}
+
 }
