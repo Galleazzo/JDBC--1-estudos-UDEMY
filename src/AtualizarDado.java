@@ -2,17 +2,20 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InserirUsuario {
+public class AtualizarDado {
 	
 	public static void main(String[] args) throws SQLException {
 		
 		Connection connection = FabricaConexao.getConnection();
+		
 		Statement stmt = connection.createStatement();
+		String sql = "update usuario set nome = 'Sandra' where codigo = '4'";
 		
 		stmt.execute("use java_udemy");
-		stmt.execute("insert into usuario(nome, idade) values ('Maria', '77')");
+		stmt.execute(sql);
 		
-		System.out.println("Adicionado !");
+		
+		System.out.println("Atualizado !");
 		connection.close();
 		
 	}

@@ -2,19 +2,22 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InserirUsuario {
-	
+public class DeletarDado {
+
 	public static void main(String[] args) throws SQLException {
 		
 		Connection connection = FabricaConexao.getConnection();
+		
 		Statement stmt = connection.createStatement();
-		
 		stmt.execute("use java_udemy");
-		stmt.execute("insert into usuario(nome, idade) values ('Maria', '77')");
 		
-		System.out.println("Adicionado !");
+		String sql = "delete from usuario where codigo = 1";
+		stmt.execute(sql);
+		
+		
+		System.out.println("Deletado !");
 		connection.close();
 		
 	}
-
+	
 }
